@@ -86,9 +86,15 @@ AZURE_AI/
    AZURE_F_KEY=tu_clave_de_azure_language
    AZURE_F_ENDPOINT=https://tu-recurso.services.ai.azure.com
 
+   # Compatibilidad con nombres antiguos:
+   # API_KEY y AZURE_ENDPOINT también funcionan para Language Service.
+
    # Azure Computer Vision (OCR e Imágenes)
    AZURE_CV_KEY=tu_clave_de_computer_vision
    AZURE_CV_ENDPOINT=https://tu-recurso.cognitiveservices.azure.com/
+
+   # Compatibilidad con nombres antiguos:
+   # suscriptionKey y endpoint también funcionan para Computer Vision.
 
    # Configuración Servidor
    PORT=3000

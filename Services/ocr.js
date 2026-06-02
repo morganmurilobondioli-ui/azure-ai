@@ -1,13 +1,16 @@
+const { obtenerConfigComputerVision } = require("./config");
+
 // Lee texto desde una imagen usando el endpoint Read de Azure Computer Vision.
 exports.leerTextoImagen = async (imageUrl) => {
   try {
-    const URL = `${process.env.AZURE_CV_ENDPOINT}/vision/v3.2/read/analyze`;
+    const { key, endpoint } = obtenerConfigComputerVision();
+    const URL = `${endpoint}/vision/v3.2/read/analyze`;
 
-    // Primera petición: envía la URL de la imagen e inicia el trabajo de OCR.
+    // Primera peticion: envia la URL de la imagen e inicia el trabajo de OCR.
     const response = await fetch(URL, {
       method: "POST",
       headers: {
-        "Ocp-Apim-Subscription-Key": process.env.AZURE_CV_KEY,
+        "Ocp-Apim-Subscription-Key": key,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ url: imageUrl }),
@@ -25,19 +28,18 @@ exports.leerTextoImagen = async (imageUrl) => {
     let result = null;
     while (true) {
       const checkResponse = await fetch(operationLocation, {
-        headers: { "Ocp-Apim-Subscription-Key": process.env.AZURE_CV_KEY },
+        headers: { "Ocp-Apim-Subscription-Key": key },
       });
 
       result = await checkResponse.json();
 
-      if (result.status === "succeeded") break; //Escapar del While
-      if (result.status === "failed")
-        throw new Error("Error procesando imagen");
+      if (result.status === "succeeded") break;
+      if (result.status === "failed") throw new Error("Error procesando imagen");
 
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
 
-    // Recorre páginas y líneas para dejar el resultado como un arreglo simple de textos.
+    // Recorre paginas y lineas para dejar el resultado como un arreglo simple de textos.
     const lineasTexto = [];
     result.analyzeResult.readResults.forEach((page) => {
       page.lines.forEach((line) => {

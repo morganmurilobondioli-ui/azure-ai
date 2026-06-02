@@ -1,7 +1,11 @@
+const { obtenerConfigLanguage } = require("./config");
+
 // Detecta entidades nombradas en un texto usando Azure Language Service.
 exports.extraerDatos = async (texto) => {
   try {
-    const URL = `${process.env.AZURE_F_ENDPOINT}/language/:analyze-text?api-version=2023-04-01`;
+    const { key, endpoint } = obtenerConfigLanguage();
+    const URL = `${endpoint}/language/:analyze-text?api-version=2023-04-01`;
+
     // Prepara el documento y le indica a Azure que queremos reconocimiento de entidades.
     const documentoProcesar = {
       kind: "EntityRecognition",
@@ -10,11 +14,11 @@ exports.extraerDatos = async (texto) => {
       },
     };
 
-    // Envía el documento a Azure con la clave de suscripción configurada en .env.
+    // Envia el documento a Azure con la clave de suscripcion configurada en .env.
     const response = await fetch(URL, {
       method: "POST",
       headers: {
-        "Ocp-Apim-Subscription-Key": `${process.env.AZURE_F_KEY}`,
+        "Ocp-Apim-Subscription-Key": key,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(documentoProcesar),

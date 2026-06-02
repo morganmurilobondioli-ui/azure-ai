@@ -1,7 +1,10 @@
-// Envía un texto a Azure Language Service y devuelve el sentimiento con porcentajes.
+const { obtenerConfigLanguage } = require("./config");
+
+// Envia un texto a Azure Language Service y devuelve el sentimiento con porcentajes.
 exports.analizarSentimiento = async (texto) => {
   try {
-    const URL = `${process.env.AZURE_F_ENDPOINT}/language/:analyze-text?api-version=2023-04-01`;
+    const { key, endpoint } = obtenerConfigLanguage();
+    const URL = `${endpoint}/language/:analyze-text?api-version=2023-04-01`;
 
     const documentosAnalizar = {
       kind: "SentimentAnalysis",
@@ -10,11 +13,11 @@ exports.analizarSentimiento = async (texto) => {
       },
     };
 
-    // La petición POST manda el documento a Azure junto con la clave del recurso.
+    // La peticion POST manda el documento a Azure junto con la clave del recurso.
     const response = await fetch(URL, {
       method: "POST",
       headers: {
-        "Ocp-Apim-Subscription-Key": process.env.AZURE_F_KEY,
+        "Ocp-Apim-Subscription-Key": key,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(documentosAnalizar),
