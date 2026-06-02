@@ -1,0 +1,156 @@
+:root {
+    --bg: #f4f6f8;
+    --panel: #ffffff;
+    --text: #1f2937;
+    --muted: #64748b;
+    --line: #d9e0e8;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --danger-bg: #fff1f2;
+    --danger: #be123c;
+    --success-bg: #ecfdf5;
+    --success: #047857;
+    --warning-bg: #fffbeb;
+    --warning: #b45309;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    padding: 24px;
+}
+
+.container {
+    width: min(100%, 980px);
+    margin: 0 auto;
+}
+
+header {
+    margin-bottom: 24px;
+}
+
+.logo {
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin-bottom: 8px;
+}
+
+h2 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+
+p {
+    color: var(--muted);
+}
+
+.grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.card,
+.config-panel section {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.card {
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
+    text-decoration: none;
+}
+
+.card:hover {
+    border-color: var(--primary);
+}
+
+.card p {
+    margin-bottom: 18px;
+}
+
+.card span {
+    color: var(--primary);
+    font-weight: 700;
+    margin-top: auto;
+}
+
+.card-config {
+    border-color: var(--primary);
+}
+
+footer {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.page {
+    width: min(100%, 820px);
+}
+
+.back-link {
+    color: var(--primary);
+    display: inline-block;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.config-panel {
+    display: grid;
+    gap: 16px;
+}
+
+.config-panel ol {
+    color: var(--muted);
+    padding-left: 20px;
+}
+
+.config-panel li + li {
+    margin-top: 8px;
+}
+
+pre {
+    background: #111827;
+    border-radius: 8px;
+    color: #e5e7eb;
+    margin-top: 12px;
+    overflow-x: auto;
+    padding: 16px;
+}
+
+code {
+    font-family: Consolas, monospace;
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 16px;
+    }
+
+    .card {
+        min-height: auto;
+    }
+}

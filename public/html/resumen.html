@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure - Resumen de Texto</title>
+    <link rel="stylesheet" href="../css/sentimiento.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">Volver al inicio</a>
+            <h1>Resumen de texto</h1>
+            <p>Obtén las oraciones más importantes de un texto largo.</p>
+        </header>
+
+        <main>
+            <div class="form-section">
+                <label for="texto">Texto para resumir:</label>
+                <textarea id="texto" rows="8" placeholder="Pega aquí el texto que deseas resumir."></textarea>
+
+                <label for="numOraciones">Número de oraciones:</label>
+                <input type="number" id="numOraciones" min="1" max="10" value="2">
+
+                <button id="btnResumir" class="btn-main">Generar resumen</button>
+            </div>
+
+            <div id="resultado" class="resultado" style="display: none;">
+                <h2>Resumen generado</h2>
+                <div id="resumenLista" class="texto-analizado"></div>
+            </div>
+
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Generando resumen con Azure AI...</p>
+            </div>
+
+            <div id="error" class="error" style="display: none;">
+                <p><span id="errorMensaje"></span></p>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/resumen.js"></script>
+</body>
+</html>

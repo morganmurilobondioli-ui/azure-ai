@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure - Análisis de Imágenes</title>
+    <link rel="stylesheet" href="../css/imagen.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">Volver al inicio</a>
+            <h1>Análisis de imágenes</h1>
+            <p>Analiza imágenes con Azure Computer Vision.</p>
+        </header>
+
+        <main>
+            <div class="form-section">
+                <label for="imageUrl">URL de la imagen:</label>
+                <div class="input-group">
+                    <input type="text" id="imageUrl" placeholder="https://ejemplo.com/imagen.jpg">
+                    <button id="btnVistaPrevia">Ver imagen</button>
+                </div>
+
+                <div id="previewContainer" class="preview-container" style="display: none;">
+                    <img id="imgPreview" src="" alt="Vista previa de la imagen">
+                </div>
+
+                <button id="btnAnalizar" class="btn-main">Analizar imagen</button>
+            </div>
+
+            <div id="resultado" class="resultado" style="display: none;">
+                <h2>Resultado del análisis</h2>
+                <div class="imagen-card">
+                    <div class="card-section">
+                        <h3>Descripción</h3>
+                        <p id="descripcion" class="descripcion-texto"></p>
+                    </div>
+                    <div class="card-section">
+                        <div class="confianza">
+                            <span>Confianza:</span>
+                            <span id="confianza" class="valor"></span>
+                        </div>
+                    </div>
+                    <div class="card-section">
+                        <h3>Etiquetas</h3>
+                        <div id="etiquetas" class="etiquetas-container"></div>
+                    </div>
+                    <div class="card-section">
+                        <h3>Categorías</h3>
+                        <div id="categorias" class="categorias-container"></div>
+                    </div>
+                    <div class="card-section">
+                        <h3>Colores dominantes</h3>
+                        <div id="colores" class="colores-container"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Procesando imagen con Azure AI...</p>
+            </div>
+
+            <div id="error" class="error" style="display: none;">
+                <p><span id="errorMensaje"></span></p>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/imagen.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurar Azure AI</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="container page">
+        <header>
+            <a href="/" class="back-link">Volver al inicio</a>
+            <p class="logo">Configurar</p>
+            <h1>Variables necesarias</h1>
+            <p>Crea un archivo <strong>.env</strong> en la raíz del proyecto y completa estos valores.</p>
+        </header>
+
+        <main class="config-panel">
+            <section>
+                <h2>Archivo .env</h2>
+                <pre><code>AZURE_F_KEY=tu_clave_de_language_service
+AZURE_F_ENDPOINT=https://tu-recurso.cognitiveservices.azure.com
+
+AZURE_CV_KEY=tu_clave_de_computer_vision
+AZURE_CV_ENDPOINT=https://tu-recurso.cognitiveservices.azure.com
+
+PORT=3000</code></pre>
+            </section>
+
+            <section>
+                <h2>Cómo iniciar</h2>
+                <ol>
+                    <li>Instala dependencias con <code>npm install</code>.</li>
+                    <li>Ejecuta el servidor con <code>npm start</code>.</li>
+                    <li>Abre <code>http://localhost:3000</code> en el navegador.</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>Nota de estudio</h2>
+                <p><strong>AZURE_F</strong> se usa para Language Service: sentimientos, entidades y resumen. <strong>AZURE_CV</strong> se usa para Computer Vision: OCR y análisis de imágenes.</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

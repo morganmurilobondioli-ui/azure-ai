@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure - Extracción de Información</title>
+    <link rel="stylesheet" href="../css/extraccion.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">Volver al inicio</a>
+            <h1>Extracción de información</h1>
+            <p>Identifica entidades como personas, lugares, organizaciones, fechas y contactos.</p>
+        </header>
+
+        <main>
+            <div class="form-section">
+                <label for="texto">Escribe o pega tu texto:</label>
+                <textarea id="texto" rows="6" placeholder="Ejemplo: Miguel de Cervantes nació en Alcalá de Henares en 1547."></textarea>
+                <button id="btnAnalizar" class="btn-main">Analizar texto</button>
+            </div>
+
+            <div class="filters-container">
+                <h3>Filtrar categorías</h3>
+                <div class="filter-chips">
+                    <label class="chip"><input type="checkbox" class="filtro-categoria" value="Person"><span>Persona</span></label>
+                    <label class="chip"><input type="checkbox" class="filtro-categoria" value="Location"><span>Ubicación</span></label>
+                    <label class="chip"><input type="checkbox" class="filtro-categoria" value="Organization"><span>Organización</span></label>
+                    <label class="chip"><input type="checkbox" class="filtro-categoria" value="Quantity"><span>Cantidad</span></label>
+                    <label class="chip"><input type="checkbox" class="filtro-categoria" value="DateTime"><span>Fecha/Hora</span></label>
+                    <label class="chip"><input type="checkbox" class="filtro-categoria" value="URL"><span>URL</span></label>
+                    <label class="chip"><input type="checkbox" class="filtro-categoria" value="Email"><span>Correo</span></label>
+                    <label class="chip"><input type="checkbox" class="filtro-categoria" value="PersonType"><span>Cargo/Rol</span></label>
+                    <label class="chip"><input type="checkbox" class="filtro-categoria" value="Event"><span>Evento</span></label>
+                    <label class="chip"><input type="checkbox" class="filtro-categoria" value="Product"><span>Producto</span></label>
+                    <label class="chip"><input type="checkbox" class="filtro-categoria" value="Skill"><span>Habilidad</span></label>
+                    <label class="chip"><input type="checkbox" class="filtro-categoria" value="Address"><span>Dirección</span></label>
+                    <label class="chip"><input type="checkbox" class="filtro-categoria" value="PhoneNumber"><span>Teléfono</span></label>
+                    <label class="chip"><input type="checkbox" class="filtro-categoria" value="IPAddress"><span>IP</span></label>
+                </div>
+            </div>
+
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analizando texto con Azure AI...</p>
+            </div>
+
+            <div id="error" class="error" style="display: none;">
+                <p><span id="errorMensaje"></span></p>
+            </div>
+
+            <div id="resultado" class="resultado" style="display: none;">
+                <h2>Entidades detectadas</h2>
+                <div class="table-wrapper">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Texto detectado</th>
+                                <th>Categoría</th>
+                                <th>% Confianza</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultadosTabla">
+                            <tr>
+                                <td colspan="3" class="no-data">No hay datos para mostrar</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/extraccion.js"></script>
+</body>
+</html>
