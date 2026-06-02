@@ -1,7 +1,8 @@
 //Configuracion
-const AZURE_ENDPOINT = ``
+require('dotenv').config()
+const AZURE_ENDPOINT = process.env.AZURE_ENDPOINT
 const DEPLOYMENT_NAME = `gpt-5.4-mini`
-const API_KEY = ``
+const API_KEY = process.env.API_KEY
 const API_VERSION = `2025-04-01-preview`
 
 async function preguntarAzure(pregunta = ``, historial = []) {

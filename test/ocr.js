@@ -1,7 +1,8 @@
 //Deteccion de texto en imagen - OCR
-const suscriptionKey =
-  "";
-const endpoint = "";
+require('dotenv').config()
+const suscriptionKey = process.env.suscriptionKey
+const endpoint = process.env.endpoint
+
 
 const url = `${endpoint}/vision/v3.2/read/analyze`;
 const imageURL = `https://image.slidesharecdn.com/eleditorialperiodstico-110615172743-phpapp01/85/El-editorial-periodistico-3-320.jpg`;

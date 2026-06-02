@@ -1,6 +1,7 @@
-//Deteccion de imagenes
-const suscriptionKey = "";
-const endpoint = "";
+require('dotenv').config()
+const suscriptionKey = process.env.suscriptionKey
+const endpoint = process.env.endpoint
+
 
 const url = `${endpoint}/vision/v3.2/analyze?visualFeatures=Description,Tags,Objects`;
 const imageUrl =

@@ -1,3 +1,4 @@
+//son rutas para acceder a los metedos 
 const express = require('express')
 //Enrutador
 const router = express.Router()

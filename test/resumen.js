@@ -1,7 +1,7 @@
 // Servicio FOUNDRY (AZURE)
-const suscriptionKey =
-  "";
-const endpoint = "";
+require('dotenv').config()
+const suscriptionKey = process.env.suscriptionKey
+const endpoint = process.env.endpoint
 
 //URL
 const URL = `${endpoint}/language/analyze-text/jobs?api-version=2023-04-01`;

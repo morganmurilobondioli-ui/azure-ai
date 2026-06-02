@@ -1,7 +1,7 @@
 //Servicio FOUNDRY (AZURE) - Responder Preguntas
-const suscriptionKey =
-  "";
-const endpoint = "";
+require('dotenv').config()
+const suscriptionKey = process.env.suscriptionKey
+const endpoint = process.env.endpoint
 
 /* const URL = `${endpoint}/language/:query-knowledgebases?projectName=PruebaQA&api-version=2021-10-01`; */
 const URL = `${endpoint}/language/:query-text?api-version=2021-10-01`;
